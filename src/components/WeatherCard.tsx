@@ -17,14 +17,14 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   aqi,
 }) => {
   return (
-    <div className="bg-gray-900 rounded-3xl p-6 text-white shadow-lg">
+    <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-6 text-white shadow-lg border border-blue-500 transition-all duration-500 ease-in-out hover:shadow-xl" role="region" aria-label={`Weather for ${city}`}>
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-lg font-bold">{city}</h3>
             <p className="text-sm text-gray-400">{time}</p>
           </div>
-          <WeatherIcon condition={condition} className="w-16 h-16" />
+          <WeatherIcon condition={condition} className="w-24 h-24" aria-hidden="true" />
         </div>
         <div className="mt-2">
           <div className="flex items-baseline">

@@ -10,6 +10,9 @@ export default {
         'weather-primary': '#00668A',
         'weather-secondary': '#004E71',
       },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'], // Add Poppins font
+      },
     },
   },
   plugins: [],
