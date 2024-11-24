@@ -21,9 +21,9 @@ const WeeklyForecast: React.FC<WeeklyForecastProps> = ({ forecast }) => {
               role="listitem"
               aria-label={`Weather for ${dayName}`}
             >
-              <span className="text-sm text-gray-300" aria-label={`Weather for ${dayName}`}>{dayName}</span>
-              <WeatherIcon condition={day.day.condition.text} className="w-16 h-16" aria-hidden="true" />
-              <div className="flex gap-2 mt-2">
+              <span className="text-sm text-gray-300 mb-4" aria-label={`Weather for ${dayName}`}>{dayName}</span>
+              <WeatherIcon condition={day.day.condition.text.toLowerCase()} className="w-16 h-16" aria-hidden="true" />
+              <div className="flex items-center justify-center gap-2 mt-2">
                 <span className="text-lg font-semibold text-blue-400" aria-label={`Max temperature ${Math.round(day.day.maxtemp_c)} degrees`}>{Math.round(day.day.maxtemp_c)}°</span>
                 <span className="text-sm text-gray-400" aria-label={`Min temperature ${Math.round(day.day.mintemp_c)} degrees`}>{Math.round(day.day.mintemp_c)}°</span>
               </div>

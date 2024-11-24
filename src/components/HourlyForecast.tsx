@@ -22,16 +22,17 @@ const HourlyForecast: React.FC<HourlyForecastProps> = ({ hours }) => {
         <option value={12}>12 hours</option>
         <option value={24}>24 hours</option>
       </select>
-      <div className="grid grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4">
         {hours.slice(0, numHours).map((hour, index) => {
           const time = new Date(hour.time).toLocaleTimeString('en-US', {
             hour: 'numeric',
             hour12: true,
           });
           return (
-            <div key={index} className="flex flex-col items-center gap-1 bg-gray-700 rounded-lg p-4 transition-transform transform hover:scale-105 shadow-md" role="listitem" aria-label={`Weather at ${time}`}>
+            <div key={index} className="flex flex-col items-center gap-2 bg-gray-700 rounded-lg p-4 transition-transform transform hover:scale-105 shadow-md" role="listitem" aria-label={`Weather at ${time}`}>
               <span className="text-sm text-gray-300">{time}</span>
               <WeatherIcon condition={hour.condition.text} className="w-16 h-16" aria-hidden="true" />
+              <span className="text-sm md:text-xs font-light text-white/50 tracking-wider">{hour.condition.text}</span>
               <span className="text-lg font-semibold text-blue-400">{Math.round(hour.temp_c)}°</span>
             </div>
           );

@@ -85,21 +85,27 @@ function App() {
 
       {weather && (
         <main className="max-w-6xl mx-auto space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <WeatherCard
-              city={weather.location.name}
-              time={weather.location.localtime}
-              temperature={unit === 'C' ? weather.current.temp_c : weather.current.temp_f}
-              condition={weather.current.condition.text}
-              aqi={70}
-            />
-            <WeatherCard
-              city="Air Quality"
-              time="Today"
-              temperature={unit === 'C' ? weather.current.temp_c : weather.current.temp_f}
-              condition={weather.current.condition.text}
-              aqi={70}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="col-span-3">
+              <WeatherCard
+                city={weather.location.name}
+                time={weather.location.localtime}
+                unit={unit}
+                temperature={unit === 'C' ? weather.current.temp_c : weather.current.temp_f}
+                condition={weather.current.condition.text}
+                aqi={70}
+              />
+            </div>
+            <div className="col-span-1 h-full">
+              <WeatherCard
+                city="Air Quality"
+                time="Today"
+                unit={unit}
+                temperature={unit === 'C' ? weather.current.temp_c : weather.current.temp_f}
+                condition={'sparkles'}
+                aqi={70}
+              />
+            </div>
           </div>
           
           <HourlyForecast hours={weather.forecast.forecastday[0].hour} />
