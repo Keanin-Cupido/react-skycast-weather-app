@@ -15,6 +15,7 @@ import '@fontsource/poppins/200.css'
 import '@fontsource/poppins/400.css'; // Regular
 import '@fontsource/poppins/700.css'; // Bold
 import Footer from './components/Footer';
+import WeatherMap from './components/WeatherMap';
 
 function App() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -94,6 +95,11 @@ function App() {
                 temperature={unit === 'C' ? weather.current.temp_c : weather.current.temp_f}
                 condition={weather.current.condition.text}
                 aqi={70}
+
+                humidity={weather.current.humidity}
+                wind={weather.current.wind_kph}
+                uv_index={weather.current.uv}
+                wind_deg={weather.current.wind_degree}
               />
             </div>
             <div className="col-span-1 h-full">
@@ -104,9 +110,16 @@ function App() {
                 temperature={unit === 'C' ? weather.current.temp_c : weather.current.temp_f}
                 condition={'sparkles'}
                 aqi={70}
+
+                humidity={0}
+                wind={0}
+                uv_index={0}
+                wind_deg={0}
               />
             </div>
           </div>
+
+          {/* <WeatherMap /> */}
           
           <HourlyForecast hours={weather.forecast.forecastday[0].hour} />
           <WeeklyForecast forecast={weather.forecast.forecastday} />
